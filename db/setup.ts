@@ -110,7 +110,8 @@ CREATE TABLE IF NOT EXISTS interviewers (
   name TEXT NOT NULL,
   email TEXT NOT NULL,
   companyId INTEGER,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE CASCADE
 );
 `)
 createInterviewersTable.run()
@@ -184,7 +185,8 @@ CREATE TABLE IF NOT EXISTS employees (
   email TEXT NOT NULL,
   position TEXT NOT NULL,
   companyId INTEGER,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE CASCADE
 )
 `)
 
